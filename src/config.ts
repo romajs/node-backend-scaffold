@@ -7,6 +7,7 @@ import convict from 'convict';
 const config = convict({
   env: {
     format: ['production', 'development', 'test'],
+    default: 'development',
     env: 'NODE_ENV',
   },
   http: {
@@ -36,11 +37,25 @@ const config = convict({
       env: 'LOGGER_LEVEL',
       arg: 'logger-level',
     },
+    prettyPrint: {
+      colorize: {
+        format: Boolean,
+        default: true,
+        env: 'LOGGER_COLORIZE',
+        arg: 'logger-colorize',
+      },
+      translateTime: {
+        format: String,
+        default: 'SYS:isoUtcDateTime',
+        env: 'LOGGER_TRANSLATETIME',
+        arg: 'logger-translatetime',
+      },
+    },
   },
 });
 
 config.validate({ allowed: 'strict' });
 
-console.debug(`Configuration loaded sucesfully, config=${config.toString()}`);
+// console.debug(`Configuration loaded sucesfully, config=${config.toString()}`);
 
 export default config;
