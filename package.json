@@ -30,7 +30,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "convict": "^5.2.0",
+    "convict": "^6.2.2",
     "dotenv": "^8.2.0",
     "koa": "^2.11.0",
     "koa-accesslog": "0.0.2",
